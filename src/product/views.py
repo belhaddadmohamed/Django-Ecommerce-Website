@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 def product_list(request):
     """
     Function takes a request as input 
-    Pagination of 4 product in each page
+    Paginator of 4 product in each page
     If the request has ?page=value --> take that value and return all the products of that page Else show products of page-1 
     """
 
@@ -21,7 +21,7 @@ def product_list(request):
     # The list of products should be inside a Dictionary
     context = {'product_list': product_list_paginator}
 
-    return render(request, 'Product/product_list.html', context)
+    return render(request, 'Product/Ecommerce_Homepage.html', context)
 
 
 
@@ -32,6 +32,6 @@ def product_detail(request, id):
     product = Product.objects.get(id=id)
     context = {'product': product}
 
-    return render(request, 'Product/product_detail.html', context)
+    return render(request, 'Product/Ecommerce_Product_page.html', context)
 
 
