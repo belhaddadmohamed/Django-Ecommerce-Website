@@ -25,11 +25,11 @@ def product_list(request):
 
 
 
-def product_detail(request, id):
+def product_detail(request, slug):
     """
     Function takes a request and a primary key (id) and return a single product.
     """
-    product = Product.objects.get(id=id)
+    product = Product.objects.get(prdSlug=slug)
     context = {'product': product}
 
     return render(request, 'Product/Ecommerce_Product_page.html', context)

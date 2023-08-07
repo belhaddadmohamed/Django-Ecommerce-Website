@@ -212,7 +212,7 @@
                                     class="w-100" />
                                 {% endif %}
 
-                                <a href="{% url 'product_detail' product.pk %}">
+                                <a href="{% url 'product_detail' product.prdSlug %}">
                                     <div class="mask">
                                         <div
                                             class="d-flex justify-content-start align-items-end h-100">
@@ -227,11 +227,11 @@
                                 </a>
                             </div>
                             <div class="card-body">
-                                <a href="{% url 'product_detail' product.id %}"
+                                <a href="{% url 'product_detail' product.prdSlug %}"
                                     class="text-reset">
                                     <h5 class="card-title mb-2">{{product.prdName}}</h5>
                                 </a>
-                                <a href class="text-reset "> <p>{{product.prdDesc}}</p>
+                                <a href class="text-reset "> <p>{{product.prdCategory}}</p>
                                 </a>
                                 <h6 class="mb-3 price">{{product.prdPrice}}$</h6>
                             </div>
