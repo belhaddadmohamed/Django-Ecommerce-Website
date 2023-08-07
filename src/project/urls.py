@@ -24,10 +24,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-
     path("admin/", admin.site.urls),
-    path("", include('product.urls'))
-
+    path("", include('product.urls')),   # you can add also namespace
+    path("", include('accounts.urls')),
+    path("accounts/", include("django.contrib.auth.urls")), # Documentation : This path contains all the user urls
 ]
 
 # Add of the static & media folders urls 

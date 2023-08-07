@@ -24,21 +24,29 @@
                     <!--Content-->
                     <div class="p-4">
                         <div class="mb-3">
-                            <a href>
-                                <span class="badge bg-dark me-1">Category 2</span>
-                            </a>
-                            <a href>
-                                <span class="badge bg-info me-1">New</span>
-                            </a>
-                            <a href>
-                                <span class="badge bg-danger me-1">Bestseller</span>
-                            </a>
+                            {% if product.prdIsNew %}
+                                <a href>
+                                    <span class="badge bg-dark me-1">New</span>
+                                </a>
+                            {% endif %}
+                            {% if product.prdPriceDiscount %}
+                                <a href>
+                                    <span class="badge bg-info me-1">Sale</span>
+                                </a>
+                            {% endif %}
+                            {% if product.prdIsBestseller %}
+                                <a href>
+                                    <span class="badge bg-danger me-1">Bestseller</span>
+                                </a>
+                            {% endif %}
                         </div>
 
                         <p class="lead">
-                            <span class="me-1">
-                                <del>$200</del>
-                            </span>
+                            {% if product.prdPriceDiscount %}
+                                <span class="me-1">
+                                    <del>${{product.prdPriceDiscount}}</del>
+                                </span>
+                            {% endif %}
                             <span>${{product.prdPrice}}</span>
                         </p>
 

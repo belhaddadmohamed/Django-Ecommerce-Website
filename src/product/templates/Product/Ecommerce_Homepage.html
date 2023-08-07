@@ -34,7 +34,7 @@
                 style="background-color: rgba(0, 0, 0, 0.4)"></div>
             <div class="carousel-caption d-none d-sm-block mb-5">
                 <h1 class="mb-4">
-                    <strong>Learn Bootstrap 5 with MDB</strong>
+                    <strong>Buy a Laptop from <span class="text-primary">Belhaddad</span></strong>
                 </h1>
 
                 <p>
@@ -62,7 +62,7 @@
                 style="background-color: rgba(0, 0, 0, 0.4)"></div>
             <div class="carousel-caption d-none d-md-block mb-5">
                 <h1 class="mb-4">
-                    <strong>Learn Bootstrap 5 with MDB</strong>
+                    <strong>Best Seller in 2023</strong>
                 </h1>
 
                 <p>
@@ -92,7 +92,7 @@
                 style="background-color: rgba(0, 0, 0, 0.4)"></div>
             <div class="carousel-caption d-none d-md-block mb-5">
                 <h1 class="mb-4">
-                    <strong>Learn Bootstrap 5 with MDB</strong>
+                    <strong></strong>
                 </h1>
 
                 <p>
@@ -212,12 +212,13 @@
                                     class="w-100" />
                                 {% endif %}
 
-                                <a href="{% url 'product_detail' product.prdSlug %}">
+                                <a href="{{product.get_absolute_url}}">
+                                    <!-- <a href="{% url 'product_detail' product.prdSlug %}"> -->
                                     <div class="mask">
-                                        <div
-                                            class="d-flex justify-content-start align-items-end h-100">
-                                            <h5><span
-                                                    class="badge bg-dark ms-2">NEW</span></h5>
+                                        <div class="d-flex justify-content-start align-items-end h-100">
+                                            {% if product.prdIsNew %}<h5><span class="badge bg-dark ms-2">New</span></h5>{% endif %}
+                                            {% if product.prdPriceDiscount %}<h5><span class="badge bg-info ms-2">Sale</span></h5>{% endif %}
+                                            {% if product.prdIsBestseller %}<h5><span class="badge bg-danger ms-2">Bestseller</span></h5>{% endif %}
                                         </div>
                                     </div>
                                     <div class="hover-overlay">

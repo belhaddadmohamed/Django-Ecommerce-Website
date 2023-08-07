@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, get_object_or_404
 from .models import Product
 from django.core.paginator import Paginator
 
@@ -27,9 +27,10 @@ def product_list(request):
 
 def product_detail(request, slug):
     """
-    Function takes a request and a primary key (id) and return a single product.
+    Function takes a request and a primary key (id) as input and returns a single product.
     """
-    product = Product.objects.get(prdSlug=slug)
+    # product = Product.objects.get(prdSlug=slug)
+    product = get_object_or_404(Product, prdSlug=slug)
     context = {'product': product}
 
     return render(request, 'Product/Ecommerce_Product_page.html', context)
